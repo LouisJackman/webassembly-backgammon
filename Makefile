@@ -27,7 +27,7 @@ make-target-directory:
 	fi
 
 assemble-wasm: make-target-directory
-	wat2wasm -o target/main.wasm src/main.wast
+	wat2wasm -o target/main.wasm src/main.wat
 
 create-embedder: make-target-directory
 	cp embedder/embed.js target/main.js
