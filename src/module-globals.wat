@@ -2,7 +2,9 @@
 ;;;; Module Globals
 ;;;;
 
-(global $empty i32 (i32.const 0))
+;;;
+;;; Constants
+;;;
 
 (global $point-count i32 (i32.const 24))
 (global $checker-count i32 (i32.const 30))
@@ -10,13 +12,23 @@
 ;; $checker-count / 2
 (global $each-player-checker-count i32 (i32.const 15))
 
+;;;
+;;; Sets
+;;;
+
+(global $empty i32 (i32.const 0))
+
 (global $occupied-by-white i32 (i32.const 1))
 (global $occupied-by-black i32 (i32.const 2))
 
 (global $current-player-is-white i32 (i32.const 1))
 (global $current-player-is-black i32 (i32.const 2))
-(global $current-player-offset i32 (i32.const 0))
 
+;;;
+;;; Memory Offsets
+;;;
+
+(global $current-player-offset i32 (i32.const 0))
 (global $points-offset i32 (i32.const 1))
 
 ;; $points-offset + ($checker-count * $point-count)

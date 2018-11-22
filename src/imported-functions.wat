@@ -2,7 +2,15 @@
 ;;;; Imported Functions
 ;;;;
 
+;;;
+;;; Debugging
+;;;
+
 (func $console-log (import "console" "log") (param $x i32))
+
+;;;
+;;; Canvas
+;;;
 
 (func $canvas-set-fill-style (import "canvas" "setFillStyle") (param i32))
 (func $canvas-set-stroke-style (import "canvas" "setStrokeStyle") (param i32))
