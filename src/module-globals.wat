@@ -42,3 +42,6 @@
 
 ;; $current-dice-1-roll-offset + 1
 (global $current-dice-2-roll-offset i32 (i32.const 724))
+
+;; $current-dice-2-roll-offset + 1
+(global $should-quit-offset i32 (i32.const 725))
