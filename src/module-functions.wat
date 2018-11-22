@@ -7,12 +7,31 @@
 ;;;
 
 (func $draw-border
-  (call $canvas-set-fill-style (get_global $colour-red))
+  (call $canvas-set-fill-style (get_global $colour-beige))
+
   (call $canvas-fill-rect
+    (i32.const 0)
+    (i32.const 0)
+    (i32.const 600)
+    (i32.const 10)
+  )
+  (call $canvas-fill-rect
+    (i32.const 0)
+    (i32.const 390)
+    (i32.const 600)
+    (i32.const 390)
+  )
+  (call $canvas-fill-rect
+    (i32.const 0)
     (i32.const 10)
     (i32.const 10)
-    (i32.const 40)
-    (i32.const 40)
+    (i32.const 390)
+  )
+  (call $canvas-fill-rect
+    (i32.const 590)
+    (i32.const 10)
+    (i32.const 600)
+    (i32.const 390)
   )
 )
 

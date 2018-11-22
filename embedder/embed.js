@@ -33,7 +33,10 @@ const createCanvas = (colours) => {
     const canvasElement = document.querySelector("canvas.main");
     const context = canvasElement.getContext("2d");
 
-    const canvas = {};
+    const canvas = {
+        width: Number.parseInt(canvasElement.getAttribute("width")),
+        height: Number.parseInt(canvasElement.getAttribute("height")),
+    };
 
     canvas.setFillStyle = colourIndex => {
         const colour = colours.get(colourIndex);
