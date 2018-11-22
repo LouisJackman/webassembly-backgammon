@@ -26,8 +26,11 @@ make-target-directory:
 		mkdir target; \
 	fi
 
-assemble-wasm: make-target-directory
-	wat2wasm -o target/main.wasm src/main.wat
+combine-source-files:
+	cat src/{imported-globals,imported-functions,module-globals,module-memories,module-functions,entry-point}.wat >target/main.wat
+
+assemble-wasm: make-target-directory combine-source-files
+	wat2wasm -o target/main.wasm target/main.wat
 
 create-embedder: make-target-directory
 	cp embedder/embed.js target/main.js
