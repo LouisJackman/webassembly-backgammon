@@ -2,7 +2,7 @@
 
 I wanted to learn both WebAssembly and Backgammon, hence this project.
 
-It requires the following:
+It requires:
 
 * Make
 * POSIX Shell, i.e. a Bourne-compatible shell.

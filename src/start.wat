@@ -1,5 +1,5 @@
 ;;;
-;;; Entry Point
+;;; Start
 ;;;
 
 (func $start

@@ -27,7 +27,7 @@ make-target-directory:
 	fi
 
 combine-source-files:
-	cat src/{imported-globals,imported-functions,module-globals,module-memories,module-functions,entry-point}.wat >target/main.wat
+	cat src/{imported-globals,imported-functions,module-globals,module-memories,module-functions,start}.wat >target/main.wat
 
 assemble-wasm: make-target-directory combine-source-files
 	wat2wasm -o target/main.wasm target/main.wat
