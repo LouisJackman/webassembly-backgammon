@@ -6,7 +6,7 @@
 ;;; Debugging
 ;;;
 
-(func $console-log (import "console" "log") (param $x i32))
+(func $console-log (import "console" "log") (param $x i32) (result i32))
 
 ;;;
 ;;; Canvas

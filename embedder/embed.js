@@ -1,7 +1,10 @@
 const { freeze } = Object;
 
 const consoleImports = freeze({
-    log: console.log.bind(console),
+    log: (...rest) => {
+        console.log(...rest);
+        return rest[0] | 0;
+    }
 });
 
 const checkForWebAssembly = () => {
