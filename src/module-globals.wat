@@ -7,13 +7,17 @@
 ;;;
 
 (global $point-count i32 (i32.const 24))
+
+;; $point-count / 2
+(global $point-per-side-count i32 (i32.const 12))
+
 (global $checker-count i32 (i32.const 30))
 
 ;; $checker-count / 2
 (global $each-player-checker-count i32 (i32.const 15))
 
 ;;;
-;;; Sets
+;;; Enumerations
 ;;;
 
 (global $empty i32 (i32.const 0))
@@ -45,3 +49,11 @@
 
 ;; $current-dice-2-roll-offset + 1
 (global $should-quit-offset i32 (i32.const 725))
+
+;;;
+;;; Canvas
+;;;
+
+(global $canvas-border-width-percent f32 (f32.const 0.025))
+(global $canvas-point-width-percent f32 (f32.const 0.020))
+(global $canvas-point-height-percent f32 (f32.const 0.45))
