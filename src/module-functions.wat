@@ -113,13 +113,13 @@
     (f32.const 2)
   ))
 
-  (set_local $point-height (call $console-log (i32.sub
+  (set_local $point-height (i32.sub
     (i32.trunc_u/f32 (f32.mul
       (f32.convert_u/i32 (get_local $canvas-height))
       (get_global $canvas-point-height-percent)
     ))
     (get_local $double-border-width)
-  )))
+  ))
 
   (call $canvas-set-fill-style (get_global $colour-red))
 
@@ -162,9 +162,61 @@
 )
 
 (func $draw-top-points
+  (local $border-width i32)
+
+
+  (set_local $border-width (i32.trunc_u/f32 (f32.mul
+    (f32.convert_u/i32 (get_global $canvas-width))
+    (get_global $canvas-border-width-percent)
+  )))
+
+
+  (call $draw-points-side (get_local $border-width))
 )
 
 (func $draw-bottom-points
+  (local $canvas-height i32)
+  (local $canvas-width i32)
+  (local $border-width-percent f32)
+  (local $border-width i32)
+  (local $point-height i32)
+  (local $double-border-width i32)
+  (local $position i32)
+
+  (set_local $canvas-height (get_global $canvas-height))
+  (set_local $canvas-width (get_global $canvas-width))
+
+  (set_local $border-width-percent (get_global $canvas-border-width-percent))
+
+  (set_local $border-width (i32.trunc_u/f32 (f32.mul
+    (f32.convert_u/i32 (get_local $canvas-width))
+    (get_local $border-width-percent)
+  )))
+
+  (set_local $double-border-width (i32.mul
+    (get_local $border-width)
+    (i32.const 2)
+  ))
+
+  (set_local $point-height (i32.sub
+    (i32.trunc_u/f32 (f32.mul
+      (f32.convert_u/i32 (get_local $canvas-height))
+      (get_global $canvas-point-height-percent)
+    ))
+    (get_local $double-border-width)
+  ))
+
+  (set_local $border-width-percent (get_global $canvas-border-width-percent))
+
+  (set_local $position (i32.sub
+    (get_global $canvas-height)
+    (i32.add
+        (get_local $point-height)
+        (get_local $border-width)
+    )
+  ))
+
+  (call $draw-points-side (get_local $position))
 )
 
 (func $draw-points
