@@ -69,6 +69,7 @@
   (local $border-width i32)
   (local $double-border-width i32)
   (local $segment-size i32)
+  (local $half-segment-size i32)
   (local $half-point-width-percent f32)
   (local $point-height i32)
   (local $canvas-border-height i32)
@@ -108,6 +109,11 @@
     (f32.convert_u/i32 (get_local $point-per-side-count))
   )))
 
+  (set_local $half-segment-size (i32.trunc_u/f32 (f32.div
+    (f32.convert_u/i32 (get_local $segment-size))
+    (f32.const 2)
+  )))
+
   (set_local $half-point-width-percent (f32.div
     (get_local $point-width-percent)
     (f32.const 2)
@@ -130,9 +136,12 @@
     ))
 
     (set_local $current-segment (i32.add
-      (i32.mul
-          (get_local $segment-size)
-          (get_local $i)
+      (i32.sub
+        (i32.mul
+            (get_local $segment-size)
+            (get_local $i)
+        )
+        (get_local $half-segment-size)
       )
       (i32.trunc_u/f32 (f32.mul
         (f32.convert_u/i32 (get_local $canvas-width))
