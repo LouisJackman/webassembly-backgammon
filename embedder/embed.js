@@ -19,6 +19,7 @@ const createColourImports = () => {
         [1, "black"],
         [2, "white"],
         [3, "beige"],
+        [4, "maroon"]
     ]);
 
     const colourImports = { };

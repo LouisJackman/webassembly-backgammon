@@ -19,7 +19,7 @@
     (get_global $canvas-border-width-percent)
   )))
 
-  (call $canvas-set-fill-style (get_global $colour-beige))
+  (call $canvas-set-fill-style (get_global $colour-black))
 
   (call $canvas-fill-rect
     (i32.const 0)
@@ -127,7 +127,6 @@
     (get_local $double-border-width)
   ))
 
-  (call $canvas-set-fill-style (get_global $colour-red))
 
   (loop
     (set_local $i (i32.add
@@ -148,6 +147,15 @@
         (get_local $border-width-percent)
       ))
     ))
+
+    (if (i32.eqz (i32.rem_u (get_local $i) (i32.const 2)))
+      (then
+        (call $canvas-set-fill-style (get_global $colour-black))
+      )
+      (else
+        (call $canvas-set-fill-style (get_global $colour-maroon))
+      )
+    )
 
     (call
       $canvas-fill-rect
