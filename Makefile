@@ -27,14 +27,21 @@ make-target-directory:
 	fi
 
 combine-source-files:
-	cat src/{imported-globals,imported-functions,module-globals,module-memories,module-functions,start}.wat >target/main.wat
+	cat \
+		src/imported-globals.wat \
+		src/imported-functions.wat \
+		src/module-globals.wat \
+		src/module-memories.wat \
+		src/module-functions.wat \
+		src/start.wat \
+		>target/main.wat
 
 assemble-wasm: make-target-directory combine-source-files
 	wat2wasm -o target/main.wasm target/main.wat
 
 create-embedder: make-target-directory
 	cp embedder/embed.js target/main.js
-	cp embedder/{index.html,style.css} target
+	cp embedder/index.html embedder/style.css target
 
 serve:
 	@if ! command -v python3 >/dev/null; \
