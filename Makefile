@@ -32,7 +32,9 @@ combine-source-files:
 		src/imported-functions.wat \
 		src/module-globals.wat \
 		src/module-memories.wat \
-		src/module-functions.wat \
+		src/module-functions/canvas.wat \
+		src/module-functions/input-processing.wat \
+		src/module-functions/state-management.wat \
 		src/start.wat \
 		>target/main.wat
 
