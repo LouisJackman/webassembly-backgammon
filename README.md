@@ -10,3 +10,7 @@ It requires:
 
 Run `make help` for the available tasks for building and running the game.
 
+This repository is hosted [on
+GitLab.com](https://gitlab.com/louis.jackman/webassembly-backgammon). If you're
+seeing this on GitHub, you're on the official GitHub mirror. [Go to
+GitLab](https://gitlab.com/louis.jackman/webassembly-backgammon) to contribute.
